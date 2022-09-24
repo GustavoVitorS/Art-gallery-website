@@ -1,0 +1,24 @@
+@use "sass:map";
+@use "breakpoints" as *;
+@use "fonts" as *;
+
+@mixin font($type, $size) {
+    font-family: map-get($fonts, $type, "family");
+    font-weight: map-get($fonts, $type, "weight");
+
+    // Use CSS variables to take advantage of media queries
+    font-size: var(--font-size-#{$type}-#{$size});
+    line-height: var(--line-height-#{$type}-#{$size});
+}
+
+@mixin mq-tablet {
+    @media screen and (min-width: map-get($breakpoints, sm)) {
+        @content;
+    }
+}
+
+@mixin mq-desktop {
+    @media screen and (min-width: map.get($breakpoints, md)) {
+        @content;
+    }
+}

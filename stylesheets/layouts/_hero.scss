@@ -1,0 +1,93 @@
+@use "../abstracts" as *;
+
+#hero {
+    position: relative;
+
+    @include mq-desktop {
+        display: flex;
+    }
+}
+
+#hero .hero-content {
+    @include mq-tablet {
+        position: absolute;
+        inset: 0;
+    }
+}
+
+#hero .container {
+    @include mq-tablet {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
+
+#hero .hero-text {
+    $gap-s: 2rem;
+    $gap-m: 3rem;
+    $gap-l: 4rem;
+
+    width: 100%;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $gap-s;
+
+    h1 {
+        @include mq-desktop {
+            padding-right: 10rem;
+        }
+    }
+
+    @include mq-tablet {
+        padding: 0;
+        padding-left: 50%;
+        gap: $gap-m;
+    }
+
+    @include mq-desktop {
+        padding: 0;
+        flex-direction: row;
+        gap: initial;
+    }
+
+    .hero-text-small {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: $gap-s;
+
+        @include mq-tablet {
+            gap: $gap-m;
+        }
+
+        @include mq-desktop {
+            max-width: 21.875rem;
+            gap: $gap-l;
+        }
+    }
+}
+
+#hero .spacer {
+    flex-grow: 1;
+}
+
+#hero .spacer-left {
+    z-index: 1;
+    background-color: #FFFFFF;
+    mix-blend-mode: difference;
+}
+
+#hero img {
+    @include mq-tablet {
+        width: 57%;
+        height: auto;
+    }
+
+    @include mq-desktop {
+        width: 37.5%;
+        max-width: 45rem;
+    }
+}

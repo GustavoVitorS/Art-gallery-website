@@ -1,0 +1,62 @@
+@use "../abstracts" as *;
+
+#location-info {
+    background-color: map-get($colors, main);
+
+    h2, p {
+        color: map-get($colors, base);
+    }
+}
+
+#location-info .button-div {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#location-info .button {
+    transform: translateX(#{map-get($container-paddings, sm) * -1});
+
+    @include mq-tablet {
+        transform: none;
+    }
+}
+
+#location-info img {
+    width: 100%;
+    height: auto;
+}
+
+.location-info-text {
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+
+    h4 {
+        color: map-get($colors, accent);
+    }
+
+    @include mq-tablet {
+        padding: 5.5rem 0;
+        flex-direction: row;
+        gap: 4.25rem;
+    }
+
+    @include mq-desktop {
+        gap: initial;
+    }
+}
+
+.location-info-text-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    @include mq-desktop {
+        max-width: 33.75rem;
+        margin-left: 4.25rem;
+        gap: 1.5rem;
+    }
+}

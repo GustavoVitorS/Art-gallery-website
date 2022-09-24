@@ -1,0 +1,49 @@
+@use "../abstracts" as *;
+
+$button-width: 16.25rem;
+$button-height: 4.5rem;
+$pseudo-element-width: 3.5rem;
+
+.button {
+    width: $button-width;
+    height: $button-height;
+    padding-right: $pseudo-element-width;
+    position: relative;
+    background-color: map-get($colors, "main");
+    color: map-get($colors, "base");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+
+    &::after {
+        content: url("../assets/icon-arrow-right.svg");
+        width: $pseudo-element-width;
+        height: $button-height;
+        position: absolute;
+        left: $button-width - $pseudo-element-width;
+        background-color: map-get($colors, "accent");
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: inherit;
+    }
+
+    &:hover {
+        background-color: map-get($colors, "accent");
+    }
+
+    &:hover::after {
+        background-color: map-get($colors, "main");
+    }
+}
+
+.button-backward {
+    padding-right: initial;
+    padding-left: $pseudo-element-width;
+
+    &::after {
+        content: url("../assets/icon-arrow-left.svg");
+        left: 0;
+    }
+}

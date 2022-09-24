@@ -1,0 +1,101 @@
+@use "../abstracts" as *;
+
+:root {
+    --font-size-header-xl: 3.75rem;
+    --font-size-header-l: 3.4375rem;
+    --font-size-header-m: 3.125rem;
+    --font-size-header-s: 2rem;
+    --font-size-header-xs: 1.5rem;
+    --font-size-body-m: 1.125rem;
+    --font-size-body-s: 1rem;
+    --font-size-button-s: 1.25rem;
+
+    --line-height-header-xl: 3.4375rem;
+    --line-height-header-l: 3.125rem;
+    --line-height-header-m: 2.8125rem;
+    --line-height-header-s: 2rem;
+    --line-height-header-xs: 1.5rem;
+    --line-height-body-m: 1.75rem;
+    --line-height-body-s: 1.625rem;
+    --line-height-button-s: auto;
+
+    @include mq-tablet {
+        --font-size-header-xl: 4.375rem;
+        --line-height-header-xl: 4.0625rem;
+    }
+
+    @include mq-desktop {
+        --font-size-header-xl: 6rem;
+        --font-size-header-l: 4.375rem;
+        --font-size-header-m: 3.75rem;
+        --font-size-header-s: 2.25rem;
+        --font-size-header-xs: 2rem;
+        --font-size-body-m: 1.375rem;
+        --font-size-body-s: 1.125rem;
+
+        --line-height-header-xl: 5.5rem;
+        --line-height-header-l: 4.375rem;
+        --line-height-header-m: 3.75rem;
+        --line-height-header-s: 2.25rem;
+        --line-height-header-xs: 2rem;
+        --line-height-body-m: 2rem;
+        --line-height-body-s: 1.75rem;
+    }
+}
+
+body {
+    text-align: left;
+    background-color: map-get($colors, base);
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: map-get($container-sizes, sm);
+    margin: 0 auto;
+    padding: 0 map-get($container-paddings, sm);
+    position: relative;
+
+    @include mq-tablet {
+        max-width: map-get($container-sizes, md);
+        padding: 0 map-get($container-paddings, md);
+    }
+
+    @include mq-desktop {
+        max-width: map-get($container-sizes, lg);
+        padding: 0 map-get($container-paddings, lg);
+    }
+}
+
+.mobile {
+    @include mq-tablet {
+        display: none;
+    }
+}
+
+.tablet {
+    display: none;
+
+    @include mq-tablet {
+        display: initial;
+    }
+
+    @include mq-desktop {
+        display: none;
+    }
+}
+
+.desktop {
+    display: none;
+
+    @include mq-desktop {
+        display: initial;
+    }
+}

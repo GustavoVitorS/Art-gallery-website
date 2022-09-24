@@ -1,0 +1,15 @@
+@use "../abstracts" as *;
+
+.page-location {
+    footer {
+        background-color: map-get($colors, accent);
+
+        h5, p, a {
+            color: map-get($colors, main);
+        }
+
+        a:hover {
+            color: map-get($colors, base);
+        }
+    }
+}

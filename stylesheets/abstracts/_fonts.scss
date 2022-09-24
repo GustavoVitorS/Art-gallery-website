@@ -1,0 +1,19 @@
+$big-shoulders-display: 'Big Shoulders Display', sans-serif;
+$outfit: 'Outfit', sans-serif;
+
+$fonts: (
+    header: (
+        family: $big-shoulders-display,
+        weight: 900,
+    ),
+
+    body: (
+        family: $outfit,
+        weight: 300,
+    ),
+
+    button: (
+        family: $big-shoulders-display,
+        weight: 800,
+    ),
+);

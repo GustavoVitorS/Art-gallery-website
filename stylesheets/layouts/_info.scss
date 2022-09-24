@@ -1,0 +1,79 @@
+@use "../abstracts" as *;
+
+#info {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+    display: grid;
+    gap: 1rem;
+    grid: "pic1" "card1" "pic2" "pic3" "card2";
+
+    @include mq-tablet {
+        grid:
+            "card1 pic1 pic1"
+            "pic2 pic2 pic3"
+            "pic2 pic2 card2";
+        
+        grid-template-columns: 1fr 0.4fr 1fr;
+    }
+
+    & .card-1 {
+        grid-area: card1;
+    }
+
+    & .card-2 {
+        grid-area: card2;
+    }
+
+    & .pic-1 {
+        grid-area: pic1;
+    }
+
+    & > .pic-2 {
+        grid-area: pic2;
+    }
+
+    & .pic-3 {
+        grid-area: pic3;
+    }
+
+    & img {
+        height: 100%;
+    }
+}
+
+#info .card {
+    display: flex;
+    align-items: center;
+}
+
+#info .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @include mq-tablet {
+        max-wdith: 14rem;
+    }
+
+    @include mq-desktop {
+        max-width: 21.875rem;
+        gap: 2rem;
+    }
+}
+
+#info .card-base-color {
+    padding: 1rem 0;
+}
+
+#info .card-main-color {
+    padding: 3rem 1.5rem;
+    background-color: map-get($colors, "main");
+    
+    h3, p {
+        color: map-get($map: $colors, $key: "base");
+    }
+
+    @include mq-desktop {
+        padding: 4rem 3rem;
+    }
+}
